@@ -1,0 +1,4 @@
+# Cordis Framework Patch Declaration for @liuhange/dsh-session-recovery
+- insert:
+    - id: "@liuhange/dsh-session-recovery"
+      name: "@liuhange/dsh-session-recovery"

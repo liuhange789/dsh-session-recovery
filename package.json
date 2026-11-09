@@ -1,0 +1,67 @@
+{
+  "name": "@liuhange/dsh-session-recovery",
+  "version": "1.0.0",
+  "description": "会话中断后的断点续跑插件 — 关键节点写入轻量检查点，启动时检测未完成会话并注入精简进度摘要",
+  "author": "liuhange789",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuhange789/dsh-session-recovery.git"
+  },
+  "homepage": "https://github.com/liuhange789/dsh-session-recovery",
+  "bugs": {
+    "url": "https://github.com/liuhange789/dsh-session-recovery/issues"
+  },
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./host/dist/index.js",
+  "types": "./host/dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./host/dist/index.d.ts",
+      "default": "./host/dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "host/dist",
+    "cordis.patch.yml",
+    "README.md",
+    "VERIFICATION.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "workspaces": [
+    "host"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "test": "node node_modules/vitest/vitest.mjs run --config vitest.config.ts --isolate=false",
+    "typecheck": "npm run typecheck --workspaces",
+    "pack:check": "npm pack --dry-run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "dsh",
+    "session-recovery",
+    "checkpoint",
+    "resume",
+    "crash-recovery",
+    "session",
+    "plugin",
+    "typescript",
+    "nodejs"
+  ]
+}
